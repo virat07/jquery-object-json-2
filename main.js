@@ -11,12 +11,12 @@ $(document).ready(function () {
             var cat = data.Category;
 
             up_user = data.books;
-            console.log(up_user);
+
             for (i in cat) {
                 Cat += '<li id=' + i + '>';
                 Cat += cat[i];
                 Cat += '</li>';
-                console.log(cat[i]);
+
             }
             $('#List').html(Cat);
 
@@ -40,6 +40,20 @@ $(document).ready(function () {
 
 
         }
+        if (user === 'All') {
+            Object.keys(up_user).forEach(function (key) {
+                var val = up_user[key];
+
+                for (var j in val) {
+                    outlook += "<div class='row'>";
+                    outlook += "<div class='column'>" + val[j].name + "</div>";
+                    outlook += "<div class = 'column'>" + val[j].description + "</div>";
+                    outlook += "<div class='column'>" + val[j].category + "</div>";
+                    outlook += "</div>";
+
+                }
+            });
+        }
 
 
         $('#base').html(outlook);
@@ -48,4 +62,3 @@ $(document).ready(function () {
 
 
 
-data.books.comd.book1
